@@ -1,0 +1,2 @@
+#!/bin/sh
+ctags -R --exclude=.git --exclude=log --exclude-coverage --exclude=spec --exclude=pkg *

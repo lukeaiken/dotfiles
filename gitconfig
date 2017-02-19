@@ -1,0 +1,34 @@
+[push]
+	default = simple
+[user]
+	name = Luke Aiken
+	email = lukeaiken@gmail.com
+[core]
+	excludesfile = /Users/lukeaiken/.gitignore_global
+	safecrlf = true
+	editor = /usr/local/bin/vim
+[alias]
+	hist = log --pretty=format:\"%C(magenta bold)%h%Creset %C(green)%ad%Creset %C(yellow)%d%s%Creset  [%C(cyan)%an%Creset]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+	ctags = !.git/hooks/ctags
+[color]
+	ui = true
+[merge]
+	tool = diffconflicts
+[credential]
+	helper = osxkeychain
+[diff]
+	tool = vimdiff
+[init]
+	templatedir = ~/.git_template
+[mergetool "diffconflicts"]
+	keepBackup = false
+	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = true
+[url "https://"]
+	insteadOf = git://
+[mergetool]
+	keepBackup = false
+[rebase]
+	autosquash = true
