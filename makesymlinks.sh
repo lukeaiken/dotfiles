@@ -12,8 +12,6 @@ files="gitconfig git_template gemrc vimrc zshrc" # list of files/folders to syml
 
 ##########
 
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
 mkdir -p $olddir
@@ -31,5 +29,3 @@ echo "Moving any existing dotfiles from ~ to $olddir"
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
-
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
