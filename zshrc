@@ -78,14 +78,13 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails git)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source ~/dotfiles/bin/tmuxinator.zsh
 
 # User configuration
 
-export PATH="/Users/lukeaiken/.rbenv/shims:/Users/lukeaiken/.rbenv/bin:/Users/lukeaiken/.rbenv/completions/rbenv.zsh:/Users/lukeaiken/dotfiles/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/Users/laiken11/dotfiles/bin:/Users/laiken11/dotfiles/bin/optimus/src"
+export PATH="/Users/lukeaiken-vertiba/dotfiles/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -123,7 +122,6 @@ function killjob()
 autoload -U zmv
 # alias zcp='zmv -C'
 # alias zln='zmv -L
-eval "$(rbenv init -)"
 
 # Goal here is to get a list of files by name without junk from subversion or
 # similar directory trees. Prune them (to avoid descent) and then remove the
