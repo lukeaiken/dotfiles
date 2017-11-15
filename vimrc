@@ -13,29 +13,18 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Tim Pope
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-capslock'
-Plugin 'tpope/vim-bundler'
 
-Plugin 'moll/vim-node'
 Plugin 'pangloss/vim-javascript'
-Plugin 'christoomey/vim-rfactory'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'thoughtbot/vim-rspec'
 Plugin 'jgdavey/vim-turbux'
 Plugin 'scrooloose/syntastic'
 Plugin 'glts/vim-textobj-comment'
@@ -44,12 +33,9 @@ Plugin 'vim-scripts/Tabmerge'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'rking/ag.vim'
-Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'kana/vim-textobj-entire'
-
-" nelstrom's plugin depends on kana's
 Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -121,13 +107,16 @@ set nrformats=
 set wildmenu
 set wildmode=full
 
-colorscheme desert
+colorscheme slate
 syntax enable
 autocmd FileType ruby,javascript,vim,html autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 augroup AutoWrite
     autocmd! BufLeave * :update
 augroup END
+
+au BufReadPost *.cls set syntax=java
+au BufReadPost *.cmp set syntax=html
 
 " statusline setup
 set statusline =%#identifier#

@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="cloud"
 
 alias devel="cd ~/dev"
 alias v="vim"
@@ -36,6 +36,8 @@ alias -s js=vim
 alias -s erb=vim
 alias -s haml=vim
 alias -s yml=vim
+alias -s cmp=vim
+alias -s css=vim
 
 ttyctl -f
 
@@ -140,3 +142,6 @@ export BCONNECTED_API_ROOT_PATH=/Users/laiken11/dev/bc4/bconnected-api/
 export BCONNECTED_API_WSREQUEST_TIMEOUT=30000
 export BCONNECTED_API_MEMCACHED_HOST=127.0.0.1:11211
 export BCONNECTED_API_STANDALONE_RUN=true
+
+# added by travis gem
+[ -f /Users/lukeaiken-vertiba/.travis/travis.sh ] && source /Users/lukeaiken-vertiba/.travis/travis.sh
