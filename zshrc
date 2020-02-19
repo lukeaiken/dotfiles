@@ -1,10 +1,11 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+
+export ZSH=/Users/lukeaiken-vertiba/.oh-my-zsh
+#export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_171)
+
 ZSH_THEME="cloud"
 
 alias devel="cd ~/dev"
@@ -46,12 +47,7 @@ ttyctl -f
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
-
-# DISABLE_UPDATE_PROMPT=true
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
+# DISABLE_UPDATE_PROMPT=true Uncomment the following line to change how often to auto-update (in days).  export UPDATE_ZSH_DAYS=13 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
@@ -83,6 +79,8 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+source ~/dotfiles/sfdx_aliases.zsh
+
 
 # User configuration
 

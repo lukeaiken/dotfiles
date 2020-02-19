@@ -4,7 +4,7 @@
 	name = Luke Aiken
 	email = lukeaiken@gmail.com
 [core]
-	excludesfile = /Users/lukeaiken/.gitignore_global
+	excludesfile = /Users/lukeaiken-vertiba/.gitignore_global
 	safecrlf = true
 	editor = /usr/local/bin/vim
 [alias]
@@ -32,3 +32,9 @@
 	keepBackup = false
 [rebase]
 	autosquash = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

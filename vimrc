@@ -49,7 +49,6 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_
 let g:ctrlp_map = '<c-p>'
 let g:EasyMotion_smartcase = 1
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
-let g:netrw_localrmdir='rm -r'
 
 nmap <Leader>SY :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 nmap mt :Tabmerge right<CR>
@@ -97,26 +96,28 @@ set showcmd		" display incomplete commands
 set smartindent
 set tabstop=2
 set shiftwidth=2
-set wrap
 set expandtab
 set autowriteall
-set textwidth=80 " wrap text to 80 chars
 set t_Co=256
 set clipboard=unnamed
 set nrformats=
+set gdefault
 set wildmenu
 set wildmode=full
 
 colorscheme slate
 syntax enable
-autocmd FileType ruby,javascript,vim,html autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType ruby,javascript,vim,html,st,mallard,xml autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 augroup AutoWrite
     autocmd! BufLeave * :update
 augroup END
 
-au BufReadPost *.cls set syntax=java
-au BufReadPost *.cmp set syntax=html
+au BufReadPost *.cls  set syntax=java
+au BufReadPost *.cmp  set syntax=html
+au BufReadPost *.evt  set syntax=html
+au BufReadPost *.wsdl set syntax=xml
+au BufReadPost *.component set syntax=html
 
 " statusline setup
 set statusline =%#identifier#
@@ -339,10 +340,29 @@ augroup END
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-function TrimEndLines()
+function! TrimEndLines()
   let save_cursor = getpos(".")
   :silent! %s#\($\n\s*\)\+\%$##
   call setpos('.', save_cursor)
 endfunction
 
 au BufWritePre *.* call TrimEndLines()
+
+function! s:rmdir()
+  let b = &ft ==? 'dirvish' ? getline('.') : fnamemodify(bufname(''),':p').getline('.')
+  if input('delete '.b.' ? (y/n)') ==# 'y'
+    if !delete(b,'rf')
+      let a = getpos('.')
+      if &ft ==? 'dirvish'
+        e
+        call setpos('.',a)
+      elseif &ft ==? 'netrw'
+        if search('^\.\/$','Wb')
+          exe "norm \<cr>"
+          call setpos('.',a)
+        endif
+      endif
+    endif
+  endif
+endfunction
+command! Rmnetrw call <SID>rmdir()
