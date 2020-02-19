@@ -2,3 +2,9 @@ set relativenumber
 set clipboard=unnamed
 set number
 set gdefault
+set history=50
+set ignorecase
+set incsearch
+set showmode
+set sidescroll=15
+set ideastatusicon=gray
