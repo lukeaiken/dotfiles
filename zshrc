@@ -79,8 +79,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source ~/dotfiles/sfdx_aliases.zsh
-
 
 # User configuration
 
