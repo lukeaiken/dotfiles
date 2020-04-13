@@ -1,61 +1,41 @@
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Must go before sourcing oh-my-zsh
+ZSH_DISABLE_COMPFIX=true
 
-export ZSH=/Users/lukeaiken-vertiba/.oh-my-zsh
-#export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_171)
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-ZSH_THEME="cloud"
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/lukeaiken/.oh-my-zsh"
 
-alias devel="cd ~/dev"
-alias v="vim"
-alias vi="vim"
-alias vim="stty stop '' -ixoff ; vim"
-alias zrc="vim ~/.zshrc"
-alias szrc="source ~/.zshrc"
-alias rsp="rake spec"
-#alias migrate="be rake db:migrate db:test:prepare"
-alias be="bundle exec"
-alias sl="ls"
-alias vimrc="vim ~/.vimrc"
-alias tconf="vim ~/.tmux.conf"
-alias ta="tmux attach -t"
-alias tk="tmux kill-session -t"
-alias tn="tmux new -s"
-alias tls="tmux ls"
-alias bsl="brew services list"
-alias bss="brew services start"
-alias bst="brew services stop"
-
-alias glum="git pull upstream master"
-alias gpum="git push upstream master"
-
-alias -s rb=vim
-alias -s txt=vim
-alias -s js=vim
-alias -s erb=vim
-alias -s haml=vim
-alias -s yml=vim
-alias -s cmp=vim
-alias -s css=vim
-
-ttyctl -f
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
-# DISABLE_UPDATE_PROMPT=true Uncomment the following line to change how often to auto-update (in days).  export UPDATE_ZSH_DAYS=13 
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to disable command auto-correction.
-# DISABLE_CORRECTION="true"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -67,59 +47,54 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/Users/lukeaiken-vertiba/dotfiles/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-
 # export MANPATH="/usr/local/man:$MANPATH"
-
-# unsetopt nomatch
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-#Preferred editor for local and remote sessions
+# Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-export EDITOR='vim'
+#   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+ export EDITOR='vim'
 # fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-TERM=xterm-256color
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export ARCHFLAGS='-arch x86_64'
-export PATH=/Library/PostgreSQL/9.1/bin:${PATH}
-export PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin:${PATH}
-
-function killjob()
-{
-    emulate -L zsh
-    for jobnum in $@ ; do
-        kill ${${jobstates[$jobnum]##*:*:}%=*}
-    done
-}
-
-autoload -U zmv
-# alias zcp='zmv -C'
-# alias zln='zmv -L
+SPACESHIP_PROMPT_SEPARATE_LINE=false
+source /usr/local/share/chruby/chruby.sh
+chruby ruby-2.7.1
+alias ls='colorls -lA --sd'
 
 # Goal here is to get a list of files by name without junk from subversion or
 # similar directory trees. Prune them (to avoid descent) and then remove the
@@ -133,11 +108,3 @@ function findem () {
     grep -v '\.class' | grep -v '\.scssc' | grep -v '\.tap' | sed 's/\ /\\ /g'
 }
 alias findme=findem
-
-export BCONNECTED_API_ROOT_PATH=/Users/laiken11/dev/bc4/bconnected-api/
-export BCONNECTED_API_WSREQUEST_TIMEOUT=30000
-export BCONNECTED_API_MEMCACHED_HOST=127.0.0.1:11211
-export BCONNECTED_API_STANDALONE_RUN=true
-
-# added by travis gem
-[ -f /Users/lukeaiken-vertiba/.travis/travis.sh ] && source /Users/lukeaiken-vertiba/.travis/travis.sh
