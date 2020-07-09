@@ -8,3 +8,5 @@ set incsearch
 set showmode
 set sidescroll=15
 set ideastatusicon=gray
+set ideajoinset
+clipboard+=ideaput
