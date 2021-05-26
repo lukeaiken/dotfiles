@@ -35,6 +35,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'rking/ag.vim'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'kana/vim-textobj-user'
+Plugin 'whiteinge/diffconflicts'
 
 call vundle#end()
 filetype plugin indent on

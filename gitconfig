@@ -7,6 +7,7 @@
 	excludesfile = /Users/lukeaiken-vertiba/.gitignore_global
 	safecrlf = true
 	editor = /usr/local/bin/vim
+	autocrlf = input
 [alias]
 	hist = log --pretty=format:\"%C(magenta bold)%h%Creset %C(green)%ad%Creset %C(yellow)%d%s%Creset  [%C(cyan)%an%Creset]\" --graph --date=short
 	type = cat-file -t
@@ -24,7 +25,7 @@
 	templatedir = ~/.git_template
 [mergetool "diffconflicts"]
 	keepBackup = false
-	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+	cmd = vim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
 	trustExitCode = true
 [url "https://"]
 	insteadOf = git://
