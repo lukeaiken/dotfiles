@@ -1,13 +1,15 @@
 [push]
 	default = simple
+[pull]
+	rebase = false
 [user]
 	name = Luke Aiken
 	email = lukeaiken@gmail.com
 [core]
-	excludesfile = /Users/lukeaiken-vertiba/.gitignore_global
+	excludesfile = /Users/lukeaiken/.gitignore_global
 	safecrlf = true
 	editor = /usr/local/bin/vim
-	autocrlf = input
+	autocrlf = false
 [alias]
 	hist = log --pretty=format:\"%C(magenta bold)%h%Creset %C(green)%ad%Creset %C(yellow)%d%s%Creset  [%C(cyan)%an%Creset]\" --graph --date=short
 	type = cat-file -t

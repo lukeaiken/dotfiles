@@ -23,9 +23,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-eunuch'
-
 Plugin 'pangloss/vim-javascript'
-Plugin 'jgdavey/vim-turbux'
 Plugin 'scrooloose/syntastic'
 Plugin 'glts/vim-textobj-comment'
 Plugin 'kien/ctrlp.vim'
@@ -105,6 +103,7 @@ set nrformats=
 set gdefault
 set wildmenu
 set wildmode=full
+set nofixendofline
 
 colorscheme slate
 syntax enable
