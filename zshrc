@@ -100,9 +100,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 SPACESHIP_PROMPT_SEPARATE_LINE=false
+
 source /usr/local/share/chruby/chruby.sh
 chruby ruby-2.7.1
+
 alias ls='colorls -lA --sd'
+
+alias mux='tmuxinator'
 
 # Goal here is to get a list of files by name without junk from subversion or
 # similar directory trees. Prune them (to avoid descent) and then remove the
@@ -119,6 +123,7 @@ alias findme=findem
 
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+alias gsf='git diff-tree --no-commit-id --name-only -r'
 
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/lukeaiken/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;

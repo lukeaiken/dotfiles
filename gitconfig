@@ -25,6 +25,7 @@
 	tool = vimdiff
 [init]
 	templatedir = ~/.git_template
+	defaultBranch = master
 [mergetool "diffconflicts"]
 	keepBackup = false
 	cmd = vim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
@@ -41,3 +42,5 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[submodule]
+	recurse = true

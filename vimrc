@@ -34,11 +34,13 @@ Plugin 'rking/ag.vim'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'kana/vim-textobj-user'
 Plugin 'whiteinge/diffconflicts'
+Plugin 'rafi/awesome-vim-colorschemes'
 
 call vundle#end()
 filetype plugin indent on
 
 autocmd FileType coffee set commentstring=#\ %s
+
 let g:syntastic_ruby_checkers = ['mri', 'rubylint', 'rubocop']
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_warning_symbol = 'S⚠'
@@ -48,6 +50,12 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_
 let g:ctrlp_map = '<c-p>'
 let g:EasyMotion_smartcase = 1
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+
+" Write current buffer if changed before navigating from Vim to tmux pane
+let g:tmux_navigator_save_on_switch = 1
+
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
 
 nmap <Leader>SY :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 nmap mt :Tabmerge right<CR>
@@ -105,15 +113,18 @@ set wildmenu
 set wildmode=full
 set nofixendofline
 
-colorscheme slate
+set background=dark
+colorscheme twilight256
 syntax enable
-autocmd FileType ruby,javascript,vim,html,st,mallard,xml autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+autocmd BufWritePre *.js, *.cls, *.xml %s/\s\+$//e
 
 augroup AutoWrite
     autocmd! BufLeave * :update
 augroup END
 
 au BufReadPost *.cls  set syntax=java
+au BufReadPost *.js  set syntax=javascript
 au BufReadPost *.cmp  set syntax=html
 au BufReadPost *.evt  set syntax=html
 au BufReadPost *.wsdl set syntax=xml
