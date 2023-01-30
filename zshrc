@@ -96,13 +96,9 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias sl="ls"
 
 SPACESHIP_PROMPT_SEPARATE_LINE=false
-
-source /usr/local/share/chruby/chruby.sh
-chruby ruby-2.7.1
 
 alias ls='colorls -lA --sd'
 
@@ -123,7 +119,7 @@ alias findme=findem
 
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-alias gsf='git diff-tree --no-commit-id --name-only -r'
+alias gsf='git diff-tree --no-commit-id --name-status -r'
 
 # heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/lukeaiken/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+#HEROKU_AC_ZSH_SETUP_PATH=/Users/lukeaiken/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
