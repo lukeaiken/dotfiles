@@ -377,3 +377,6 @@ function! s:rmdir()
   endif
 endfunction
 command! Rmnetrw call <SID>rmdir()
+
+autocmd bufwritepost .tmux.conf execute ':!tmux source-file %'
+autocmd bufwritepost .tmux.local.conf execute ':!tmux source-file %'

@@ -1,5 +1,6 @@
 [push]
 	default = simple
+  autoSetupRemote = true
 [pull]
 	rebase = false
 [user]
@@ -8,7 +9,7 @@
 [core]
 	excludesfile = /Users/lukeaiken/.gitignore_global
 	safecrlf = true
-	editor = /usr/local/bin/vim
+	editor = /opt/homebrew/bin/vim
 	autocrlf = false
 [alias]
 	hist = log --pretty=format:\"%C(magenta bold)%h%Creset %C(green)%ad%Creset %C(yellow)%d%s%Creset  [%C(cyan)%an%Creset]\" --graph --date=short

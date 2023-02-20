@@ -97,6 +97,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias sl="ls"
+alias t="tmux"
 
 SPACESHIP_PROMPT_SEPARATE_LINE=false
 
